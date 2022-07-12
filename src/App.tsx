@@ -1,8 +1,12 @@
+import { Input } from '@/components';
+
+import { AppProvider } from '@/providers';
+
 const App = () => {
   return (
-    <div>
-      <h1>Hello World</h1>
-    </div>
+    <AppProvider>
+      <Input name="hello" />
+    </AppProvider>
   );
 };
 
