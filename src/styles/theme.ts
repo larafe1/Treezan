@@ -30,6 +30,7 @@ export const theme = {
   },
   shapes: {
     sharp: '0px',
+    xs: '3px',
     sm: '5px',
     md: '8px',
     lg: '10px'

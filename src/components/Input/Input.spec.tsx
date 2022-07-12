@@ -1,5 +1,5 @@
 import { screen, waitFor } from '@testing-library/react';
-import { default as userEvent } from '@testing-library/user-event';
+import userEvent from '@testing-library/user-event';
 import { describe, it, vi } from 'vitest';
 
 import { theme } from '@/styles/theme';
@@ -34,7 +34,7 @@ describe('Input component', () => {
     });
   });
 
-  it('should have a error variant when input value is invalid', () => {
+  it('should present an error state style when input value is invalid', () => {
     renderWithTheme(<Input name="test" error={'Lorem ipsum'} />);
 
     expect(screen.getByRole('textbox')).toHaveStyle({
@@ -54,34 +54,40 @@ describe('Input component', () => {
     expect(screen.getByRole('textbox')).toHaveValue('Lorem ipsum');
   });
 
-  it("should change the input's value when typing", async () => {
+  it('should have a disabled state when provided', () => {
+    renderWithTheme(<Input name="test" disabled />);
+
+    expect(screen.getByRole('textbox')).toBeDisabled();
+  });
+
+  it("should change the input's value when user types", async () => {
     const onChange = vi.fn();
 
     renderWithTheme(<Input name="test" onChange={onChange} />);
 
-    const input = screen.getByRole('textbox');
     const text = 'Lorem ipsum';
+    const input = screen.getByRole('textbox');
 
-    userEvent.type(input, text);
+    await userEvent.type(input, text);
 
     await waitFor(() => {
-      expect(onChange).toHaveValue(text);
+      expect(input).toHaveValue(text);
       expect(onChange).toHaveBeenCalledTimes(text.length);
     });
   });
 
-  it("should not change the input's value when is disabled", async () => {
+  it('should not change the input value when disabled', async () => {
     const onChange = vi.fn();
 
-    renderWithTheme(<Input disabled name="test" onChange={onChange} />);
+    renderWithTheme(<Input name="test" onChange={onChange} disabled />);
 
-    const input = screen.getByRole('textbox');
     const text = 'Lorem ipsum';
+    const input = screen.getByRole('textbox');
 
-    userEvent.type(input, text);
+    await userEvent.type(input, text);
 
     await waitFor(() => {
-      expect(onChange).toHaveValue('');
+      expect(input).toHaveValue('');
       expect(onChange).not.toHaveBeenCalled();
     });
   });
