@@ -45,7 +45,14 @@ export const Input = styled.input<InputProps>`
           background-color: ${theme.colors.background};
         `;
     }
-  }}
+  }};
+
+  ${({ disabled }) =>
+    disabled &&
+    css`
+      opacity: 0.5;
+      cursor: not-allowed;
+    `}
 
   ${({ error, theme }) =>
     error &&

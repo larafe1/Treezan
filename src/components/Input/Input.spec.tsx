@@ -54,10 +54,14 @@ describe('Input component', () => {
     expect(screen.getByRole('textbox')).toHaveValue('Lorem ipsum');
   });
 
-  it('should have a disabled state when provided', () => {
+  it('should have a disabled state style when provided', () => {
     renderWithTheme(<Input name="test" disabled />);
 
     expect(screen.getByRole('textbox')).toBeDisabled();
+    expect(screen.getByRole('textbox')).toHaveStyle({
+      opacity: 0.5,
+      cursor: 'not-allowed'
+    });
   });
 
   it("should change the input's value when user types", async () => {

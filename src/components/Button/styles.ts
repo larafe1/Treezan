@@ -50,16 +50,17 @@ export const Button = styled.button<ButtonProps>`
       background-color: transparent;
     `}
 
-  ${({ isLoading }) =>
-    isLoading &&
-    css`
-      opacity: 0.5;
-      cursor: not-allowed;
+  ${({ disabled, isLoading }) =>
+    disabled || isLoading
+      ? css`
+          opacity: 0.5;
+          cursor: not-allowed;
 
-      &:active {
-        transform: none !important;
-      }
-    `}
+          &:active {
+            transform: none !important;
+          }
+        `
+      : null}
 
   transition: all ${({ theme }) => theme.transitions.fast};
 

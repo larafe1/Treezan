@@ -5,6 +5,5 @@ export type InputProps = React.InputHTMLAttributes<HTMLInputElement> & {
   variant?: InputVariants;
   placeholder?: string;
   defaultValue?: string;
-  disabled?: boolean;
   error?: string;
 };

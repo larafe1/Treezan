@@ -4,15 +4,7 @@ import * as S from './styles';
 import type { InputProps } from './types';
 
 const InputComponent: ForwardRefRenderFunction<HTMLInputElement, InputProps> = (
-  {
-    name,
-    variant = 'default',
-    placeholder,
-    defaultValue,
-    disabled,
-    error,
-    ...props
-  },
+  { name, variant = 'default', error, ...props },
   ref
 ) => {
   return (
@@ -20,10 +12,7 @@ const InputComponent: ForwardRefRenderFunction<HTMLInputElement, InputProps> = (
       <S.Input
         name={name}
         variant={variant}
-        placeholder={placeholder}
-        defaultValue={defaultValue}
         ref={ref}
-        disabled={disabled}
         error={error}
         {...props}
       />

@@ -68,6 +68,16 @@ describe('Button component', () => {
     expect(screen.getByRole('button')).toBeDisabled();
   });
 
+  it('should have a disabled state style when provided', () => {
+    renderWithTheme(<Button disabled>Click me</Button>);
+
+    expect(screen.getByRole('button')).toBeDisabled();
+    expect(screen.getByRole('button')).toHaveStyle({
+      opacity: 0.5,
+      cursor: 'not-allowed'
+    });
+  });
+
   it('should have a size when provided', () => {
     renderWithTheme(<Button size="xl">Click me</Button>);
 
