@@ -1,5 +1,6 @@
 import { ThemeProvider } from 'styled-components';
 
+import { AuthProvider, ToastProvider } from '@/providers';
 import { GlobalStyle } from '@/styles/global';
 import { theme } from '@/styles/theme';
 
@@ -9,7 +10,8 @@ export const AppProvider = ({ children }: AppProviderProps) => {
   return (
     <ThemeProvider theme={theme}>
       <GlobalStyle />
-      {children}
+      <ToastProvider />
+      <AuthProvider>{children}</AuthProvider>
     </ThemeProvider>
   );
 };

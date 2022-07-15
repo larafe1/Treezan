@@ -1,9 +1,10 @@
+import { SignIn } from '@/pages';
 import { AppProvider } from '@/providers';
 
 const App = () => {
   return (
     <AppProvider>
-      <div></div>
+      <SignIn />
     </AppProvider>
   );
 };
