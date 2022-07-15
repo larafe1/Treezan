@@ -99,7 +99,7 @@ describe('Modal component', () => {
     });
   });
 
-  it('should have children (content) when provided', () => {
+  it('should have a children (content) when provided', () => {
     renderWithTheme(
       <Modal open={true} w="100px" h="100px" title="Lorem ipsum">
         Content

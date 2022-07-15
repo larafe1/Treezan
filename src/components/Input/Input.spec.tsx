@@ -34,6 +34,18 @@ describe('Input component', () => {
     });
   });
 
+  it('should present an error text when input value is invalid', () => {
+    renderWithTheme(<Input name="test" error={'Lorem ipsum'} />);
+
+    expect(screen.getByText('Lorem ipsum')).toBeInTheDocument();
+    expect(screen.getByText('Lorem ipsum')).toHaveStyle({
+      marginLeft: '0.8rem',
+      marginTop: '0.5rem',
+      fontSize: theme.fonts.sizes.md,
+      color: theme.colors.error
+    });
+  });
+
   it('should present an error state style when input value is invalid', () => {
     renderWithTheme(<Input name="test" error={'Lorem ipsum'} />);
 

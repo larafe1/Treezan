@@ -9,7 +9,7 @@ export const GlobalStyle = createGlobalStyle`
 
   ${({ theme }) => css`
     html {
-      font-size: 62.5%;
+      font-size: 92.5%;
     }
 
     body {

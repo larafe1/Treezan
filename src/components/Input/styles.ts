@@ -16,9 +16,9 @@ const slideInAnimation = keyframes`
 export const Input = styled.input<InputProps>`
   width: 100%;
 
-  padding: 1rem 1.2rem;
+  padding: 0.8rem 0.9rem;
 
-  font-size: ${({ theme }) => theme.fonts.sizes.md};
+  font-size: ${({ theme }) => theme.fonts.sizes.sm};
 
   border-radius: ${({ theme }) => theme.shapes.sm};
 
@@ -73,6 +73,7 @@ export const Input = styled.input<InputProps>`
 
 export const ErrorText = styled.p`
   margin-left: 0.8rem;
+  margin-top: 0.5rem;
 
   font-size: ${({ theme }) => theme.fonts.sizes.md};
 

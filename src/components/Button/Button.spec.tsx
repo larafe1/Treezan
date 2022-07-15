@@ -82,7 +82,7 @@ describe('Button component', () => {
     renderWithTheme(<Button size="xl">Click me</Button>);
 
     expect(screen.getByRole('button')).toHaveStyle({
-      padding: '1.5rem 3rem'
+      padding: '1.1rem 1.75rem'
     });
   });
 

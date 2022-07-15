@@ -4,13 +4,12 @@ type Unit = 'px' | 'rem' | 'vh' | 'vw';
 
 type Size = `${number}${Unit}`;
 
-export type ModalProps = {
-  open: boolean;
+export type CardProps = {
   w: Size;
   h: Size;
   title: string;
-  withoutCloseButton?: boolean;
+  rounded?: boolean;
   children: ReactNode;
 };
 
-export type ModalStyleProps = Partial<ModalProps>;
+export type CardStyleProps = Partial<CardProps>;

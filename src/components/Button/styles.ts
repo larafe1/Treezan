@@ -10,26 +10,28 @@ export const Button = styled.button<ButtonProps>`
     switch (size) {
       case 'sm':
         return css`
-          padding: 0.5rem 1.5rem;
+          padding: 0.5rem 1rem;
         `;
       case 'md':
         return css`
-          padding: 0.8rem 2rem;
+          padding: 0.7rem 1.25rem;
         `;
       case 'lg':
         return css`
-          padding: 1rem 2.5rem;
+          padding: 0.9rem 1.5rem;
         `;
       case 'xl':
         return css`
-          padding: 1.5rem 3rem;
+          padding: 1.1rem 1.75rem;
         `;
       default:
         return css`
-          padding: 0.8rem 2rem;
+          padding: 0.7rem 1.25rem;
         `;
     }
   }}
+
+  font-size: ${({ theme }) => theme.fonts.sizes.sm};
 
   border: 1px solid ${({ theme }) => theme.colors.border};
   border-radius: ${({ rounded, theme }) => (rounded ? theme.shapes.sm : 0)};
